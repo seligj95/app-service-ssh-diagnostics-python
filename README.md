@@ -8,10 +8,20 @@
 This sample backs the blog post **"Debugging Python apps on App Service with
 the new SSH helper aliases."** The repo gives you:
 
-* A small **FastAPI app** that calls **Azure AI Foundry** via managed identity
+* A small **FastAPI app** that calls **Azure OpenAI** via managed identity
 * An `/admin/fault` endpoint that toggles one of **6 realistic fault modes**
 * **Bicep** infra that wires App Service + AOAI + RBAC + App Insights
 * `azd up`-ready end-to-end
+
+> **A note on Azure OpenAI vs. Azure AI Foundry.** This sample provisions an
+> Azure OpenAI account (`Microsoft.CognitiveServices/accounts`, `kind: OpenAI`).
+> The new `ai-*` SSH aliases speak the OpenAI chat-completions API
+> (`/openai/deployments/<model>/chat/completions`), which is identical on
+> Azure OpenAI and on AI Foundry projects — both expose `*.openai.azure.com`
+> endpoints. The aliases work against either; the env-var name
+> `AZURE_AI_FOUNDRY_ENDPOINT` is just the alias contract. If you already
+> have a Foundry project, drop its endpoint into the env var and the same
+> walkthrough works.
 
 ## Architecture
 

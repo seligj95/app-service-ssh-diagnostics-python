@@ -1,0 +1,43 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Environments
+.env
+.venv
+env/
+venv/
+
+# IDE
+.idea/
+.vscode/*
+!.vscode/launch.json
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Azure
+.azure/
+azd-debug.log
+azure.log
+
+# Bicep build artifacts
+infra/main.json
+
+# Blog draft + companion assets (live here until publish)
+BLOG.md
+BLOG.html
+BANNER_PROMPT.md
+blog-assets/
+
+# Captured alias output (work files for the blog)
+alias-output/

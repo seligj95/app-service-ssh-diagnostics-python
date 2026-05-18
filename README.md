@@ -26,8 +26,8 @@ the new SSH helper aliases."** The repo gives you:
 ## Architecture
 
 ```
-                      ┌──────────────────────────────────────┐
-   curl / browser ──▶ │  App Service (Python 3.11, P0v3)     │
+                      ┌───────────────────────────────────────┐
+   curl / browser ──▶ │  App Service (Python 3.11, P0v3)      │
                       │   FastAPI                             │
                       │   ├── /            landing page       │
                       │   ├── /health                         │
@@ -170,11 +170,6 @@ azd down --purge
 
 `--purge` is important — AOAI accounts are soft-deleted by default and the
 custom subdomain stays reserved unless you purge.
-
-## Authors
-
-Written by **Tulika Chaudharie** (creator of the SSH aliases) and
-**Jordan Selig**.
 
 ## License
 

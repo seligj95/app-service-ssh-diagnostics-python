@@ -27,7 +27,7 @@ the new SSH helper aliases."** The repo gives you:
 
 ```
                       ┌───────────────────────────────────────┐
-   curl / browser ──▶ │  App Service (Python 3.11, P0v3)      │
+   curl / browser ──▶ │  App Service (Python 3.14, P0v3)      │
                       │   FastAPI                             │
                       │   ├── /            landing page       │
                       │   ├── /health                         │
@@ -148,7 +148,7 @@ app-service-ssh-diagnostics-python/
 ## Local dev
 
 ```bash
-python3.11 -m venv .venv && source .venv/bin/activate
+python3.14 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 
 # Point at an AOAI you have access to:

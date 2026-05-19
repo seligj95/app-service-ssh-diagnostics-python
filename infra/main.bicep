@@ -13,7 +13,7 @@ param location string
 param principalId string = ''
 
 @description('Python runtime version on App Service')
-param pythonVersion string = '3.11'
+param pythonVersion string = '3.14'
 
 @description('SKU of the App Service plan')
 param appServicePlanSkuName string = 'P0v3'

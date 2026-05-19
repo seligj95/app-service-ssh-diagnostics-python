@@ -1,9 +1,14 @@
 fastapi==0.115.0
+# Platform-managed startup on Python 3.14+ uses
+#   gunicorn -k uvicorn_worker.UvicornWorker
+# so we need both packages installed. uvicorn[standard] keeps local dev working.
+gunicorn==23.0.0
+uvicorn-worker==0.3.0
 uvicorn[standard]==0.30.6
 pydantic>=2.10.0
-# openai 1.54.x passes `proxies` to httpx.Client.__init__, which was removed in httpx 0.28.
-httpx>=0.27,<0.28
-openai==1.54.4
+# openai >=1.55 dropped the `proxies` kwarg, so we can use modern httpx.
+openai>=1.55,<2
+httpx>=0.27
 azure-identity==1.19.0
 # Let azure-monitor-opentelemetry pull the OTel API/SDK versions it has been tested against.
 azure-monitor-opentelemetry>=1.6.4,<2.0

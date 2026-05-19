@@ -3,7 +3,7 @@ param location string = resourceGroup().location
 param tags object = {}
 
 param appServicePlanId string
-param pythonVersion string = '3.11'
+param pythonVersion string = '3.14'
 param applicationInsightsConnectionString string
 param azureOpenAiEndpoint string
 param azureOpenAiDeployment string
@@ -41,7 +41,10 @@ resource web 'Microsoft.Web/sites@2024-04-01' = {
       linuxFxVersion: 'PYTHON|${pythonVersion}'
       alwaysOn: true
       ftpsState: 'FtpsOnly'
-      appCommandLine: 'python -m uvicorn main:app --host 0.0.0.0 --port 8000'
+      // On Python 3.14+, App Service auto-detects FastAPI in main.py and starts
+      // it with `gunicorn -k uvicorn_worker.UvicornWorker`. Explicit empty
+      // appCommandLine clears any prior custom command so detection kicks in.
+      appCommandLine: ''
       http20Enabled: true
       minTlsVersion: '1.2'
       healthCheckPath: '/health'
